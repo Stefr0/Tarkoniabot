@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"  # Update dependencies in the npm ecosystem
+    directory: "/"  # Root directory of the project
+    schedule:
+      interval: "weekly"  # Check for updates every week
+      time: "02:00"  # Time of the day for the update (UTC)
+      day: "monday"  # Day of the week for the update
+    target-branch: "main"  # Branch to open pull requests
+    open-pull-requests-limit: 10  # Maximum number of open Dependabot PRs
+    ignore:
+      - dependency-name: "lodash"  # Ignore updates for lodash
+        versions: ["<4.0.0"]  # Ignore versions below 4.0.0
+    labels: ["dependencies", "automated-update"]  # Labels for Dependabot PRs
+    reviewers: ["team-lead"]  # Add team lead as a reviewer
+    assignees: ["developer1"]  # Assign developer1 to the PRs
+    commit-message:
+      prefix: "chore"  # Add 'chore' as a prefix to the commit message
+      include: "title-only"  # Include only the title in the commit message
